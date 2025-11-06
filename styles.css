@@ -120,8 +120,11 @@ select {
     gap: 1vw;
 }
 
-.inactive-note-chckbx {
-}
+/* box-shadow: 0px 0px 4px #6C63FF; */
+
+
+/* .inactive-note-chckbx {
+} */
 
 .notes-list input[type="checkbox"] {
     width: 2.4vw;
