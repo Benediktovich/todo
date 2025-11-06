@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+      font-family: "Kanit", sans-serif;
+      font-weight: 100;
+      font-style: normal;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.to-do-list {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.to-do-list h3 {
+    font-weight: 500;
+}
+
+.search-container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 60%;
+    display: inline-block;
+}
+
+.search {
+    width: 100%;
+    height: 4vh;
+    border-radius: 5px;
+    border: 1px solid #6C63FF;
+    padding-left: 15px;
+    padding-right: 45px; /* Место для кнопки внутри */
+    color: #414141;
+}
+
+.search-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+}
+
+::placeholder {
+    color: #C3C1E5;
+}
+
+.search-button:focus {
+    border: none;
+}
+
+:focus {
+    outline: none;
+    border: 2px solid #2b1fff;
+}
+
+select {
+    width: 13%;
+    height: 4vh;
+    background-color: #6C63FF;
+    color: white;
+    padding: 0 10px;
+    font-family: "Kanit", sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+}
+
+.theme-button {
+    width: 5%;
+    height: 4vh;
+    border: none;
+    border-radius: 5px;
+    background-color: #6C63FF;
+    background-image: url(Vector\(2\).png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    cursor: pointer;
+}
+
+.notes-list {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inactive-note-chckbx {
+    display: flex;
+    gap: 1vw;
+}
+
+.inactive-note-chckbx {
+}
+
+.notes-list input[type="checkbox"] {
+    width: 2.4vw;
+    height: 2.4vh;
+    border-radius: 1px;
+    accent-color: #6C63FF;
+}
+
+.notes-list div h2 {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.line-through {
+    color: rgba(37, 37, 37, 0.5);
+    text-decoration: line-through;
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.active-note-chckbx {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vw;
+}
+
+.edit-and-delete-btns {
+    display: flex;
+}
+
+.edit, .delete {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
