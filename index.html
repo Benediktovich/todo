@@ -31,22 +31,41 @@
             
         </div>
 
-        <div class="notes-list">
-
-            <div class="active-note-chckbx"><input type="checkbox">
-                <div>
-                <h2>NOTE #1</h2>
-                <div class="edit-and-delete-btns">
-                    <button class="edit" type="button"><img src="edit.png"></button>
-                    <button class="delete" type="button"><img src="delete.png"></button>
-                </div>
-                </div>
-            </div>
-            <div class="inactive-note-chckbx"><input type="checkbox"><h2 class="line-through">NOTE #2</h2></div>
-            <div class="inactive-note-chckbx"><input type="checkbox"><h2>NOTE #3</h2></div>
-
+<div class="notes-list">
+    <div class="note-item">
+        <input type="checkbox">
+        <h2>NOTE #1</h2>
+        <div class="note-actions">
+            <button class="edit" type="button"><img src="edit.png" alt="Edit"></button>
+            <button class="delete" type="button"><img src="delete.png" alt="Delete"></button>
         </div>
     </div>
+    <div class="note-item completed">
+        <input type="checkbox" checked>
+        <h2>NOTE #2</h2>
+    </div>
+    <div class="note-item3">
+        <input type="checkbox">
+        <h2>NOTE #3</h2>
+    </div>
+</div>
+    </div>
+
+<div class="add-note-btn">
+    <img src="Vector(3).png">
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <h3>NEW NOTE</h3>
+        <textarea placeholder="Input your note..." class="note-input"></textarea>
+        <div class="modal-buttons">
+            <button class="cancel-btn">CANCEL</button>
+            <button class="apply-btn">APPLY</button>
+        </div>
+    </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
