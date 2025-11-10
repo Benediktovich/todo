@@ -57,7 +57,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     width: 30px;
-    height: 25px;
+    height: 30px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -100,7 +100,7 @@ select {
     border: none;
     border-radius: 5px;
     background-color: #6C63FF;
-    background-image: url(Vector\(2\).png);
+    background-image: url(Vector.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 22px;
@@ -138,6 +138,7 @@ select {
     justify-content: center;
     flex-direction: column;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .note-item {
@@ -247,7 +248,7 @@ select {
     text-align: center;
 }
 
-.note-input {
+.note-text {
     width: 100%;
     height: 100px;
     border: 1px solid #6C63FF;
@@ -255,7 +256,6 @@ select {
     padding: 15px;
     font-family: "Kanit", sans-serif;
     font-size: 16px;
-    resize: none;
     margin-bottom: 20px;
 }
 
@@ -310,4 +310,21 @@ select {
 /* Показываем модальное окно */
 .modal-overlay.active {
     display: flex;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.empty-text {
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #6C63FF;
+    margin-top: 20px;
+    text-align: center;
 }
