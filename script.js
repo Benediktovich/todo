@@ -8,6 +8,8 @@ const notesList = document.getElementById('notes-list');
 const emptyState = document.getElementById('empty-state');
 const searchInput = document.querySelector('.search');
 const filterSelect = document.querySelector('select');
+const themeToggleBtn = document.getElementById("theme-toggle");
+// const themeToggleBtn_img = document.querySelector("#theme-toggle>img");
 
 // Показ модального окна
 addNoteBtn.addEventListener('click', () => {
@@ -203,4 +205,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Изначально показываем пустое состояние
     emptyState.style.display = 'block';
     notesList.style.display = 'none';
+});
+
+// Смена темы 
+themeToggleBtn.addEventListener("click",() => {
+    document.getElementsByTagName("body")[0].classList.toggle("dark");
+    themeToggleBtn_img.setAttribute(
+        "src",
+        themeToggleBtn_img.getAttribute("src") == "moon.svg"
+        ? "sun.svg"
+        : "moon.svg"
+    );
 });

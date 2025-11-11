@@ -11,10 +11,45 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    transition: 0.75s;
+}
+
+body.dark {
+    background: #1e253a;
+    color: #e5e7f0;
+}
+
+body.dark .search {
+    background: #1e253a;
+    color: #e5e7f0;
+}
+
+body.dark .search::placeholder, .note-text::placeholder {
+    color: #7a7a7a;
+}
+
+body.dark .modal {
+    background: #1e253a;
+    color: #e5e7f0;
+}
+
+body.dark .modal h3 {
+    color: #e5e7f0;
+}
+
+body.dark .note-text {
+    background: #1e253a;
+    color: #e5e7f0;
+}
+
+body.dark .cancel-btn {
+    background: #1e253a;
+    color: #6C63FF;
+    border-color: #6C63FF;
 }
 
 .to-do-list {
-    width: 55%;
+    width: 50%;
     height: 580px;
     display: flex;
     justify-content: flex-start;
@@ -94,16 +129,15 @@ select {
     border-radius: 5px;
 }
 
-.theme-button {
+.theme-toggle {
     width: 5%;
     height: 4vh;
     border: none;
     border-radius: 5px;
     background-color: #6C63FF;
-    background-image: url(Vector.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -289,9 +323,9 @@ select {
 }
 
 .cancel-btn {
-    background-color: #f5f5f5;
-    color: #666;
-    border: 1px solid #ddd;
+    background-color: white;
+    color: #6C63FF;
+    border: 1px solid #6C63FF;
 }
 
 .cancel-btn:hover {
@@ -318,6 +352,8 @@ select {
     align-items: center;
     justify-content: center;
     margin-top: 40px;
+    gap: 20px;
+    text-align: center;
 }
 
 .empty-text {
@@ -328,3 +364,4 @@ select {
     margin-top: 20px;
     text-align: center;
 }
+
