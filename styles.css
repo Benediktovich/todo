@@ -322,9 +322,8 @@ select {
 
 .empty-text {
     font-family: "Kanit", sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 18px;
-    color: #6C63FF;
     margin-top: 20px;
     text-align: center;
 }
