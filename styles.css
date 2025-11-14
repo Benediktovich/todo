@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    transition: 0.75s;
+    transition: 1s;
 }
 
 body.dark {
@@ -48,9 +48,15 @@ body.dark .cancel-btn {
     border-color: #6C63FF;
 }
 
+/* body.dark input [type="checkbox"] {
+    accent-color: #6C63FF;
+    background-color: #1e253a;
+} */
+
 .to-do-list {
     width: 50%;
     height: 580px;
+    margin-top: 55px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -88,14 +94,12 @@ body.dark .cancel-btn {
 
 .search-button {
     position: absolute;
-    right: 5px;
+    right: 0px;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border: none;
-    border-radius: 3px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,7 +153,6 @@ select {
     flex-direction: column;
     gap: 20px;
 }
-
 
 .notes-list input[type="checkbox"] {
     width: 2.5vw;
@@ -230,6 +233,13 @@ select {
     cursor: pointer;
 }
 
+.edit:hover svg {
+  fill: #6C63FF;
+}
+
+.delete:hover svg {
+  fill: #FF6B6B;
+}
 
 /* Кнопка добавления новой заметки */
 .add-note-btn {
@@ -293,12 +303,12 @@ select {
     margin-bottom: 20px;
 }
 
-.note-input:focus {
+.note-text:focus {
     outline: none;
-    border: 2px solid #6C63FF;
+    border: 2px solid #1b0fff;
 }
 
-.note-input::placeholder {
+.note-text::placeholder {
     color: #C3C1E5;
     font-family: "Kanit", sans-serif;
     font-weight: 300;
@@ -358,9 +368,11 @@ select {
 
 .empty-text {
     font-family: "Kanit", sans-serif;
-    font-weight: 200;
     font-size: 18px;
     margin-top: 20px;
     text-align: center;
 }
 
+.empty-text h2 {
+    font-weight: 400;
+}

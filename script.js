@@ -98,7 +98,7 @@ function addNoteEventListeners(noteItem) {
     
     // Обработчик для кнопки редактирования
     editBtn.addEventListener('click', () => {
-        const newText = prompt('Edit note:', noteTitle.textContent);
+        const newText = prompt('Отредактировать заметку:', noteTitle.textContent);
         if (newText !== null && newText.trim() !== '') {
             noteTitle.textContent = newText.trim();
         }
@@ -106,7 +106,7 @@ function addNoteEventListeners(noteItem) {
     
     // Обработчик для кнопки удаления
     deleteBtn.addEventListener('click', () => {
-        if (confirm('Are you sure you want to delete this note?')) {
+        if (confirm('Вы точно хотите удалить эту заметку?')) {
             noteItem.remove();
             
             // Проверяем, остались ли заметки
@@ -147,7 +147,7 @@ function filterNotes() {
     // Если после поиска нет видимых заметок, показываем пустое состояние
     if (!hasVisibleNotes && noteItems.length > 0) {
         emptyState.style.display = 'block';
-        emptyState.querySelector('.empty-text').textContent = 'No notes match your search';
+        emptyState.querySelector('.empty-text');
     } else if (hasVisibleNotes) {
         emptyState.style.display = 'none';
         notesList.style.display = 'flex';
