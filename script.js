@@ -25,7 +25,7 @@ cancelBtn.addEventListener('click', () => {
 
 // Закрытие модального окна при клике на overlay
 modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
+    if (e.target === modalOverlay || e.key === 'Esc') {
         modalOverlay.classList.remove('active');
     }
 });
@@ -106,12 +106,10 @@ function addNoteEventListeners(noteItem) {
     
     // Обработчик для кнопки удаления
     deleteBtn.addEventListener('click', () => {
-        if (confirm('Вы точно хотите удалить эту заметку?')) {
             noteItem.remove();
             
             // Проверяем, остались ли заметки
             checkIfEmpty();
-        }
     });
 }
 
@@ -210,10 +208,21 @@ document.addEventListener('DOMContentLoaded', () => {
 // Смена темы 
 themeToggleBtn.addEventListener("click",() => {
     document.getElementsByTagName("body")[0].classList.toggle("dark");
+    
     themeToggleBtn_img.setAttribute(
         "src",
         themeToggleBtn_img.getAttribute("src") == "moon.svg"
         ? "sun.svg"
         : "moon.svg"
     );
+    
+    const detectiveImg = document.querySelector('.empty-state img');
+    if (detectiveImg) {
+        detectiveImg.setAttribute(
+            "src",
+            document.getElementsByTagName("body")[0].classList.contains("dark")
+            ? "Detective1.svg"
+            : "Detective.svg"
+        );
+    }
 });
