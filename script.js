@@ -87,30 +87,30 @@ function addNoteEventListeners(noteItem) {
     const deleteBtn = noteItem.querySelector('.delete');
     const noteTitle = noteItem.querySelector('h2');
     
-    // Обработчик для чекбокса
-    checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-            noteItem.classList.add('completed');
-        } else {
-            noteItem.classList.remove('completed');
-        }
-    });
+// Обработчик для чекбокса
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+        noteItem.classList.add('completed');
+    } else {
+        noteItem.classList.remove('completed');
+    }
+});
     
     // Обработчик для кнопки редактирования
-    editBtn.addEventListener('click', () => {
-        const newText = prompt('Отредактировать заметку:', noteTitle.textContent);
-        if (newText !== null && newText.trim() !== '') {
-            noteTitle.textContent = newText.trim();
-        }
-    });
+editBtn.addEventListener('click', () => {
+    const newText = prompt('Отредактировать заметку:', noteTitle.textContent);
+    if (newText !== null && newText.trim() !== '') {
+        noteTitle.textContent = newText.trim();
+    }
+});
     
     // Обработчик для кнопки удаления
-    deleteBtn.addEventListener('click', () => {
-            noteItem.remove();
-            
-            // Проверяем, остались ли заметки
-            checkIfEmpty();
-    });
+deleteBtn.addEventListener('click', () => {
+        noteItem.remove();
+        
+    // Проверяем, остались ли заметки
+    checkIfEmpty();
+});
 }
 
 // Проверка пустого состояния
@@ -182,7 +182,7 @@ function filterByStatus() {
     // Показываем пустое состояние если нет заметок после фильтрации
     if (!hasVisibleNotes && noteItems.length > 0) {
         emptyState.style.display = 'block';
-        emptyState.querySelector('.empty-text').textContent = 'No notes match the selected filter';
+        emptyState.querySelector('.empty-text').textContent = 'Ни одна заметка не соответствует выбранному фильтру';
         notesList.style.display = 'none';
     } else if (hasVisibleNotes) {
         emptyState.style.display = 'none';
