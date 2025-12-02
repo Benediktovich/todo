@@ -56,11 +56,6 @@ body.dark .modal {
     border: 1px solid #F7F7F7;
 }
 
-/* body.dark input [type="checkbox"] {
-    accent-color: #6C63FF;
-    background-color: #1e253a;
-} */
-
 .to-do-list {
     width: 50%;
     height: 580px;
