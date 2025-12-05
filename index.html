@@ -81,10 +81,22 @@
 <div class="modal-overlay">
     <div class="modal">
         <h3>НОВАЯ ЗАМЕТКА</h3>
-        <input required type="text" placeholder="Введите здесь текст заметки..." class="note-text" id="note-text">
+        <input required type="text" placeholder="Введите здесь текст заметки.." class="note-text" id="note-text">
         <div class="modal-buttons">
             <button class="cancel-btn">ОТМЕНА</button>
-            <button class="apply-btn" id="">ДОБАВИТЬ</button>
+            <button class="apply-btn" id="apply-btn">ДОБАВИТЬ</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно подтверждения удаления -->
+<div class="delete-modal-overlay">
+    <div class="delete-modal">
+        <h3>УДАЛИТЬ ЗАМЕТКУ</h3>
+        <p>Вы уверены, что хотите удалить эту заметку?</p>
+        <div class="modal-buttons">
+            <button class="cancel-delete-btn">ОТМЕНА</button>
+            <button class="confirm-delete-btn">УДАЛИТЬ</button>
         </div>
     </div>
 </div>

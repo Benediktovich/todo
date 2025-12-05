@@ -46,6 +46,34 @@ body.dark .note-text {
     color: #e5e7f0;
 }
 
+/* Существующие стили для светлой темы */
+.note-item.completed h2 {
+    color: rgba(37, 37, 37, 0.5);
+    text-decoration: line-through;
+    font-weight: 300;
+}
+
+/* Добавьте эти стили для темной темы */
+body.dark .note-item h2 {
+    color: #e5e7f0; /* Белый текст для обычных заметок в темной теме */
+}
+
+body.dark .note-item.completed h2 {
+    color: rgba(229, 231, 240, 0.5); /* Полупрозрачный белый для завершенных */
+    text-decoration: line-through;
+    font-weight: 300;
+}
+
+/* Если вы используете класс note-title (как в предыдущем ответе про редактирование) */
+body.dark .note-item.completed .note-title {
+    color: rgba(229, 231, 240, 0.5);
+}
+
+/* Также добавьте стиль для обычного заголовка в темной теме */
+body.dark .note-title {
+    color: #e5e7f0;
+}
+
 body.dark .cancel-btn {
     background: #1e253a;
     color: #6C63FF;
@@ -94,6 +122,11 @@ body.dark .modal {
     padding-left: 15px;
     padding-right: 45px; /* Место для кнопки внутри */
     color: #414141;
+}
+
+.search:focus {
+    border: 2px solid #6C63FF;
+    outline: none;
 }
 
 .search-button {
@@ -241,6 +274,61 @@ select {
   fill: #FF6B6B;
 }
 
+.note-content {
+    flex: 1;
+    position: relative;
+}
+
+.note-edit-input {
+    width: 100%;
+    height: 30px;
+    padding: 5px 10px;
+    border: 2px solid #6C63FF;
+    border-radius: 4px;
+    font-family: "Kanit", sans-serif;
+    font-size: 16px;
+    background-color: white;
+    color: #414141;
+}
+
+body.dark .note-edit-input {
+    background-color: #2a3042;
+    color: #e5e7f0;
+    border-color: #6C63FF;
+}
+
+.note-edit-input:focus {
+    outline: none;
+    border-color: #4a42cc;
+}
+
+/* Обновите существующие стили для заметок */
+.note-item h2 {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    flex: 1;
+    margin: 0;
+}
+
+.note-item.completed .note-title {
+    color: rgba(37, 37, 37, 0.5);
+    text-decoration: line-through;
+    font-weight: 300;
+}
+
+/* Темная тема */
+body.dark .note-title {
+    color: #e5e7f0;
+}
+
+body.dark .note-item.completed .note-title {
+    color: rgba(229, 231, 240, 0.5);
+    text-decoration: line-through;
+    font-weight: 300;
+}
+
 /* Кнопка добавления новой заметки */
 .add-note-btn {
     width: 55px;
@@ -261,7 +349,7 @@ select {
     background-color: #5a52d5;
 }
 
-/* Модальное окно */
+/* Модальное окно создания заметки */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -360,6 +448,127 @@ body.dark .cancel-btn:hover {
 /* Показываем модальное окно */
 .modal-overlay.active {
     display: flex;
+}
+
+/* Модальное окно удаления */
+.delete-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001; /* Выше, чем у основного модального окна */
+}
+
+.delete-modal {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.delete-modal h3 {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.delete-modal p {
+    font-family: "Kanit", sans-serif;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Темная тема для модального окна удаления */
+body.dark .delete-modal {
+    background: #1e253a;
+    color: #e5e7f0;
+    border: 1px solid #F7F7F7;
+}
+
+body.dark .delete-modal h3 {
+    color: #e5e7f0;
+}
+
+body.dark .delete-modal p {
+    color: #b0b5c5;
+}
+
+/* Показываем модальное окно удаления */
+.delete-modal-overlay.active {
+    display: flex;
+}
+
+/* Кнопки в модальном окне удаления */
+.delete-modal .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cancel-delete-btn, .confirm-delete-btn {
+    flex: 1;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Kanit", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cancel-delete-btn {
+    background-color: white;
+    color: #6C63FF;
+    border: 1px solid #6C63FF;
+}
+
+.cancel-delete-btn:hover {
+    background-color: #e9e9e9;
+}
+
+.confirm-delete-btn {
+    background-color: #ff9494;
+    color: white;
+}
+
+.confirm-delete-btn:hover {
+    background-color: #ff5252;
+}
+
+.delete-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.delete-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+/* Темная тема для кнопок удаления */
+body.dark .cancel-delete-btn {
+    background-color: #1e253a;
+    color: #6C63FF;
+    border-color: #6C63FF;
+}
+
+body.dark .cancel-delete-btn:hover {
+    background-color: #5c5c5c33;
 }
 
 .empty-state {
