@@ -101,6 +101,8 @@ function addNoteEventListeners(noteItem) {
     
     // Обработчик для чекбокса
     checkbox.addEventListener('change', () => {
+        console.log(checkbox.checked);
+        
         if (checkbox.checked) {
             noteItem.classList.add('completed');
         } else {
@@ -307,15 +309,10 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Инициализация при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-    // Изначально показываем пустое состояние
-    emptyState.style.display = 'block';
-    notesList.style.display = 'none';
-});
-
 // Смена темы 
 themeToggleBtn.addEventListener("click",() => {
+    console.log(document.getElementsByTagName("body"));
+    
     document.getElementsByTagName("body")[0].classList.toggle("dark");
     
     // Меняем иконку темы (луна/солнце)
