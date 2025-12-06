@@ -275,7 +275,7 @@ function filterByStatus() {
     // Показываем пустое состояние если нет заметок после фильтрации
     if (!hasVisibleNotes && noteItems.length > 0) {
         emptyState.style.display = 'block';
-        emptyState.querySelector('.empty-text').textContent = 'Ни одна заметка не соответствует выбранному фильтру';
+        emptyState.querySelector('.empty-text').textContent = 'No notes match the selected filter';
         notesList.style.display = 'none';
     } else if (hasVisibleNotes) {
         emptyState.style.display = 'none';
@@ -318,6 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
 themeToggleBtn.addEventListener("click",() => {
     document.getElementsByTagName("body")[0].classList.toggle("dark");
     
+    // Меняем иконку темы (луна/солнце)
     themeToggleBtn_img.setAttribute(
         "src",
         themeToggleBtn_img.getAttribute("src") == "moon.svg"
@@ -325,6 +326,7 @@ themeToggleBtn.addEventListener("click",() => {
         : "moon.svg"
     );
     
+    // Меняем изображение детектива
     const detectiveImg = document.querySelector('.empty-state img');
     if (detectiveImg) {
         detectiveImg.setAttribute(
@@ -332,6 +334,17 @@ themeToggleBtn.addEventListener("click",() => {
             document.getElementsByTagName("body")[0].classList.contains("dark")
             ? "Detective1.svg"
             : "Detective.svg"
+        );
+    }
+    
+    // Меняем иконку лупы в поиске
+    const searchIcon = document.querySelector('.search-icon');
+    if (searchIcon) {
+        searchIcon.setAttribute(
+            "src",
+            document.getElementsByTagName("body")[0].classList.contains("dark")
+            ? "Vector1.svg"  // Для темной темы
+            : "Vector (2).svg"  // Для светлой темы
         );
     }
 });
