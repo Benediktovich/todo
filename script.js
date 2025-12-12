@@ -19,6 +19,11 @@ const confirmDeleteBtn = document.querySelector('.confirm-delete-btn');
 // Переменная для хранения заметки, которую собираемся удалить
 let noteToDelete = null;
 
+// Загрузка задач при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    loadTasks();
+});
+
 // Показ модального окна
 addNoteBtn.addEventListener('click', () => {
     modalOverlay.classList.add('active');
@@ -44,6 +49,7 @@ applyBtn.addEventListener('click', () => {
     
     if (text) {
         createNote(text);
+        addNoteToFile(text); // Сохраняем заметку в файл
         modalOverlay.classList.remove('active');
         noteText.value = '';
         
@@ -89,6 +95,12 @@ function createNote(text) {
     
     // Добавляем обработчики для новой заметки
     addNoteEventListeners(noteItem);
+    
+    // Скрываем пустое состояние
+    if (emptyState.style.display !== 'none') {
+        emptyState.style.display = 'none';
+        notesList.style.display = 'flex';
+    }
 }
 
 // Добавление обработчиков событий для заметки
@@ -101,8 +113,6 @@ function addNoteEventListeners(noteItem) {
     
     // Обработчик для чекбокса
     checkbox.addEventListener('change', () => {
-        console.log(checkbox.checked);
-        
         if (checkbox.checked) {
             noteItem.classList.add('completed');
         } else {
@@ -311,8 +321,6 @@ document.addEventListener('keydown', (e) => {
 
 // Смена темы 
 themeToggleBtn.addEventListener("click",() => {
-    console.log(document.getElementsByTagName("body"));
-    
     document.getElementsByTagName("body")[0].classList.toggle("dark");
     
     // Меняем иконку темы (луна/солнце)
@@ -345,3 +353,60 @@ themeToggleBtn.addEventListener("click",() => {
         );
     }
 });
+
+// Сохранение заметки в файл через PHP
+function addNoteToFile(note) {
+    const formData = new FormData();
+    formData.append("task_title", note);
+
+    fetch("test.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log("Note saved:", result);
+    })
+    .catch(error => console.error("Error saving note:", error));
+}
+
+// Загрузка задач из файла через PHP
+function loadTasks() {
+    fetch("getTasks.php")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(tasks => {
+            console.log("Loaded tasks:", tasks);
+            
+            // Очистить список перед добавлением
+            notesList.innerHTML = '';
+            
+            // Если нет задач, показываем пустое состояние
+            if (tasks.length === 0 || (tasks.length === 1 && tasks[0] === '')) {
+                emptyState.style.display = 'block';
+                notesList.style.display = 'none';
+                return;
+            }
+            
+            // Скрываем пустое состояние
+            emptyState.style.display = 'none';
+            notesList.style.display = 'flex';
+            
+            // Добавляем каждую задачу в список
+            tasks.forEach(task => {
+                if (task && task.trim() !== '') {
+                    createNote(task.trim());
+                }
+            });
+        })
+        .catch(error => {
+            console.error("Error loading tasks:", error);
+            // Если ошибка загрузки, показываем пустое состояние
+            emptyState.style.display = 'block';
+            notesList.style.display = 'none';
+        });
+}

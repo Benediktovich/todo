@@ -1,25 +1,17 @@
 <?php
-header('Content-Type: application/json');
+// прочитать содержимое файла tasks.txt
+// в файле должно лежать примерно такое: "task1;task2;task3"
+// полученную строку с заметками необходимо разделить по сепаратору ; на массив строк
+// вернуть полученный массив в виде JSON
 
-$filename = "todo/tasks.txt";
+$filename = "tasks.txt";
 
 if (file_exists($filename)) {
-    // Read file content
     $content = file_get_contents($filename);
-    
-    // Remove trailing semicolon and split into array
     $content = rtrim($content, ';');
     $tasks = explode(';', $content);
-    
-    // Filter out empty values
-    $tasks = array_filter($tasks, function($task) {
-        return !empty(trim($task));
-    });
-    
-    // Reset array indices
-    $tasks = array_values($tasks);
-    
-    echo json_encode($tasks);
+    $tasks = array_filter($tasks);
+    echo json_encode(array_values($tasks));
 } else {
     echo json_encode([]);
 }

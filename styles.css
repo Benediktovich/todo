@@ -198,7 +198,7 @@ select {
 }
 
 .notes-list {
-    width: 45%;
+    width: 55%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -336,7 +336,7 @@ body.dark .note-item.completed .note-title {
     align-items: center;
     box-shadow: 0px 0px 4px #6C63FF;
     position: relative;
-    right: 250px;
+    right: 170px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
