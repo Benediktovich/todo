@@ -1,16 +1,16 @@
 <?php
-$filename = "tasks.txt";
+$filename = "todo/tasks.txt";
 
-$file = fopen( $filename, !file_exists($filename)?"w+":"a+");
+// Open file for appending (create if doesn't exist)
+$file = fopen($filename, file_exists($filename) ? 'a' : 'w');
 
-// print_r( $_POST["task_title"]); // $_GET $_REQUEST
-
-fputs($file, $_POST["task_title"] . ";");
-
-fclose($file);
-
-return "Ok";
-
-// ["ключ"=>"значение"]
-
+// Check if task_title exists in POST
+if (isset($_POST["task_title"]) && !empty($_POST["task_title"])) {
+    $task = trim($_POST["task_title"]);
+    fwrite($file, $task . ";");
+    fclose($file);
+    echo "OK";
+} else {
+    echo "No task provided";
+}
 ?>

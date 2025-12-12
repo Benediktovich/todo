@@ -149,10 +149,6 @@ body.dark .modal {
     color: #C3C1E5;
 }
 
-.search-button:focus {
-    border: none;
-}
-
 select {
     width: 17%;
     height: 4vh;

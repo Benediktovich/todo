@@ -102,6 +102,42 @@
     </div>
 </div>
 
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Load existing tasks
+        fetch("todo/getTasks.php")
+        .then((response) => response.json())
+        .then((resp) => {
+            console.log(resp);
+            // Display tasks in container
+            const container = document.getElementById("container");
+            resp.forEach(task => {
+                const p = document.createElement("p");
+                p.textContent = task;
+                container.appendChild(p);
+            });
+        });
+    });
+
+    document.getElementById("btn").addEventListener("click", () => {
+        let task_text = document.getElementById("task_input").value;
+        let form_data_obj = new FormData();
+        form_data_obj.append("task_title", task_text);
+
+        fetch("todo/test.php", {
+            method: 'post',
+            body: form_data_obj,
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            // Clear input and reload tasks
+            document.getElementById("task_input").value = "";
+            location.reload();
+        });
+    });
+    </script>
+
 <script src="script.js"></script>
 </body>
 </html>
